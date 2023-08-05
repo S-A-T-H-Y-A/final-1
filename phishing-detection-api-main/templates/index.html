@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Phishing Website Detection</title> 
+           <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}"> 
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
+    </nav><br />
+    <br />
+    <div class="topic">Phishing Detection</div>
+    <br />
+    <br />
+    <form method="POST" action="/" style="margin: 0 auto;">
+        <input type="text" name="input_url" placeholder="Enter a URL" style="margin: 5px 0;">
+        <br />
+        <input type="submit" value="Submit" style="margin-top: 10px;">
+        <div class="loader" id="loader"></div>
+    </form>
+
+    <script>
+        // Hide the loader on page load
+        window.addEventListener("load", function () {
+            document.getElementById("loader").style.display = "none";
+        });
+
+        // Show the loader when the form is submitted
+        document.querySelector("form").addEventListener("submit", function () {
+            document.getElementById("loader").style.display = "block";
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+
+        </ul>
+    </nav>
+    <div class="topic">Results</div>
+    <br />
+    <br />
+    <div class="table-container">
+        <div class="left-section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Attribute</th>
+                        <th>Values</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for attribute, _ in results.attribute_values.items() %}
+                    <tr>
+                        <td>{{ attribute }}</td>
+                        <td class="{{ _ }}">{{ _ }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="right-section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th>Prediction</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for model, prediction in results.model_predictions.items() %}
+                    <tr>
+                        <td>{{ model }}</td>
+                        <td class="{{ prediction }}">{{ prediction }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <br />
+            <br />
+            <div class="prediction-box">
+                <div class="prediction-message">
+                    <p>So, the given website could be classified as <span class="{{results.prediction}}">{{ results.prediction
+                            }}</span>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form action="/" method="GET" style="margin: 0 auto;">
+        <input type="submit" value="Go Back" style="margin-top: 10px;">
+    </form>
+
+</body>
+
+</html>

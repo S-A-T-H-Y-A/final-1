@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Invalid URL</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
+    </nav><br />
+    <br />
+    <div class="topic">Invalid URL</div>
+    <br />
+    <br/>
+    <form action="/" method="GET" style="margin: 0 auto;">
+        <br/>
+        <div class="message">
+            <p>The provided URL is not valid.</p>
+        </div>
+        <br/>
+        <br/>
+        <input type="submit" value="Go Back" style="margin-top: 10px;">
+    </form>
+</body>
+
+</html>
